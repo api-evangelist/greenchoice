@@ -1,6 +1,7 @@
 aid: greenchoice
 name: GreenChoice
-description: 'Access the most comprehensive nutrition '
+description: >-
+  Access the most comprehensive nutrition.
 type: Index
 position: Consumer
 access: 3rd-Party
@@ -15,7 +16,8 @@ specificationVersion: '0.19'
 apis:
   - aid: greenchoice:greenchoice
     name: GreenChoice
-    description: 'Access the most comprehensive nutrition '
+    description: >-
+      Access the most comprehensive nutrition.
     humanURL: https://about.greenchoicenow.com/
     tags:
       - API
