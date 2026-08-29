@@ -3,6 +3,17 @@ name: Greenchoice
 description: >-
   Greenchoice is a Dutch energy supplier focused on green electricity and gas, offering renewable energy contracts, solar panels, heat pumps, and EV charging services to consumers and businesses in the Netherlands.
 type: Index
+deliveryModel:
+  model: unknown
+  open_source: false
+  commercial: false
+  callable_host: false
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - none
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: unknown
