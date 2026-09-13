@@ -1,0 +1,203 @@
+generated: '2026-09-12'
+method: probed
+source: >-
+  Live unauthenticated GET probes of the RFC 8615 well-known path list against every host
+  this record knows: the registrable domain and www, the customer portal (mijn.greenchoice.nl),
+  the identity provider that portal redirects to (sso.greenchoice.nl), and the mobile-app
+  host (app.greenchoice.nl).
+note: >-
+  One real document was found. https://sso.greenchoice.nl/.well-known/openid-configuration
+  returns an OpenID Connect 1.0 discovery document (application/json) whose issuer is
+  https://sso.greenchoice.nl — Greenchoice's own Duende/IdentityServer deployment, reached by
+  following the 302 from https://mijn.greenchoice.nl/ to
+  /connect/authorize?client_id=app-mijngreenchoice. Everything else missed. Two hosts answer
+  HTTP 200 with an HTML single-page-app shell for EVERY /.well-known/* path
+  (mijn.greenchoice.nl and sso.greenchoice.nl) — those are catch-all routes, not documents,
+  and are recorded as misses. app.greenchoice.nl (the host the mobile app calls) resets the
+  TLS handshake for a desktop browser user-agent and could not be probed at all.
+subdomain_enumeration:
+  source: 'https://crt.sh/?q=%25.greenchoice.nl&output=json'
+  status: 200
+  note: >-
+    Certificate Transparency was used to enumerate Greenchoice hosts rather than guessing path
+    patterns. It surfaced 79 names. Those worth probing were probed: sso (the hit),
+    techradar.greenchoice.nl (a real public tech radar, see techradar/), lumi, b2b,
+    serviceportaal, compliance and mijnlaadpas. Notably there is NO api.* or developer.* host —
+    api.greenchoice.nl, developer.greenchoice.nl, status.greenchoice.nl and tools.greenchoice.nl
+    all fail to resolve. Several tennet-*.greenchoice.nl and tennetb2b-*.greenchoice.nl names
+    exist, which is Greenchoice's B2B message exchange with TenneT, the Dutch transmission system
+    operator; that surface is private market infrastructure, refuses public TLS connections, and
+    is recorded here only as an observation, never as a published contract.
+hosts:
+  - host: sso.greenchoice.nl
+    note: >-
+      Greenchoice identity provider. The only host in this record that serves a real
+      machine-readable discovery document.
+    documents:
+      - path: /.well-known/openid-configuration
+        status: 200
+        content_type: application/json; charset=UTF-8
+        file: greenchoice-openid-configuration.json
+        note: >-
+          Real OIDC 1.0 discovery document. issuer https://sso.greenchoice.nl; advertises
+          authorization, token, userinfo, endsession, revocation, introspection, device
+          authorization, CIBA backchannel and pushed-authorization-request (PAR) endpoints,
+          plus PKCE (S256) and DPoP signing algorithms.
+      - path: /.well-known/openid-configuration/jwks
+        status: 200
+        content_type: application/json; charset=UTF-8
+        file: null
+        note: >-
+          Live JWKS referenced by jwks_uri; a real RSA signing key set (RS256). Not saved to
+          the repo — it rotates, and the discovery document already names its canonical URL.
+      - path: /.well-known/oauth-authorization-server
+        status: 200
+        content_type: text/html; charset=utf-8
+        file: null
+        note: MISS — HTML login-shell catch-all, not an RFC 8414 document.
+      - path: /.well-known/oauth-protected-resource
+        status: 200
+        content_type: text/html; charset=utf-8
+        file: null
+        note: MISS — HTML login-shell catch-all, not an RFC 9728 document.
+      - path: /.well-known/security.txt
+        status: 200
+        content_type: text/html; charset=utf-8
+        file: null
+        note: MISS — HTML login-shell catch-all, not an RFC 9116 document.
+      - path: /.well-known/api-catalog
+        status: 200
+        content_type: text/html; charset=utf-8
+        file: null
+        note: MISS — HTML login-shell catch-all, not an RFC 9727 document.
+      - path: /.well-known/agent-card.json
+        status: 200
+        content_type: text/html; charset=utf-8
+        file: null
+        note: MISS — HTML login-shell catch-all, not an A2A AgentCard.
+      - path: /.well-known/agent.json
+        status: 200
+        content_type: text/html; charset=utf-8
+        file: null
+        note: MISS — HTML login-shell catch-all, not an A2A AgentCard.
+  - host: www.greenchoice.nl
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+        file: null
+      - path: /.well-known/openid-configuration
+        status: 404
+        file: null
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+        file: null
+      - path: /.well-known/api-catalog
+        status: 404
+        file: null
+      - path: /.well-known/ai-plugin.json
+        status: 404
+        file: null
+      - path: /.well-known/agent-card.json
+        status: 404
+        file: null
+      - path: /.well-known/agent.json
+        status: 404
+        file: null
+      - path: /llms.txt
+        status: 404
+        file: null
+  - host: greenchoice.nl
+    note: Redirects to www.greenchoice.nl; same results.
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+        file: null
+      - path: /.well-known/openid-configuration
+        status: 404
+        file: null
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+        file: null
+      - path: /.well-known/api-catalog
+        status: 404
+        file: null
+      - path: /.well-known/ai-plugin.json
+        status: 404
+        file: null
+      - path: /.well-known/agent-card.json
+        status: 404
+        file: null
+      - path: /.well-known/agent.json
+        status: 404
+        file: null
+  - host: mijn.greenchoice.nl
+    note: >-
+      Customer self-service portal. Answers 200 with the same 1,026-byte SPA shell
+      ("Greenchoice SSO") for every /.well-known/* path it does not 404 — a catch-all,
+      recorded as a miss on each.
+    documents:
+      - path: /.well-known/openid-configuration
+        status: 200
+        content_type: text/html
+        file: null
+        note: MISS — SPA shell, not a document.
+      - path: /.well-known/oauth-authorization-server
+        status: 200
+        content_type: text/html
+        file: null
+        note: MISS — SPA shell, not a document.
+      - path: /.well-known/api-catalog
+        status: 200
+        content_type: text/html
+        file: null
+        note: MISS — SPA shell, not a document.
+      - path: /.well-known/security.txt
+        status: 404
+        file: null
+      - path: /.well-known/ai-plugin.json
+        status: 404
+        file: null
+      - path: /.well-known/agent-card.json
+        status: 404
+        file: null
+      - path: /.well-known/agent.json
+        status: 404
+        file: null
+  - host: app.greenchoice.nl
+    note: >-
+      Host the Greenchoice mobile app calls. TLS handshake is reset
+      (SSL_ERROR_SYSCALL) for an ordinary desktop browser user-agent, so no path on this
+      host could be probed. Recorded as unreachable, not as absent.
+    documents:
+      - path: /.well-known/openid-configuration
+        status: 0
+        file: null
+        note: TLS handshake reset — not reachable from a public client.
+      - path: /.well-known/agent-card.json
+        status: 0
+        file: null
+        note: TLS handshake reset — not reachable from a public client.
+  - host: lumi.greenchoice.nl
+    note: >-
+      Marketing site for "Lumi", Greenchoice's smart-energy product (Next.js on Vercel). Probed
+      because the name suggested an assistant surface; it is a static marketing page with no
+      API and no discovery documents.
+    documents:
+      - path: /llms.txt
+        status: 404
+        file: null
+      - path: /.well-known/agent-card.json
+        status: 404
+        file: null
+      - path: /.well-known/agent.json
+        status: 404
+        file: null
+      - path: /.well-known/openid-configuration
+        status: 404
+        file: null
+      - path: /.well-known/oauth-protected-resource
+        status: 404
+        file: null
+      - path: /openapi.json
+        status: 404
+        file: null

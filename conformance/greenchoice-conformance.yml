@@ -1,0 +1,160 @@
+generated: '2026-09-12'
+method: searched
+source: >-
+  https://sso.greenchoice.nl/.well-known/openid-configuration (probed 2026-09-12) plus
+  Greenchoice's own published certification and conformity pages.
+note: >-
+  Two kinds of evidence are recorded here and they are deliberately kept apart. The protocol
+  entries are read out of Greenchoice's live OpenID Connect discovery document — each one is a
+  field the document itself advertises, so the evidence is the exact key. The organisational
+  entries are certifications and conformity declarations Greenchoice publishes on its own
+  site. Greenchoice publishes no developer API, so there is no OpenAPI, vocabulary or tag set
+  to derive anything else from, and no domain standard is asserted: the Dutch energy market
+  does run sector data standards (EDSN / MFF message flows between suppliers and grid
+  operators), but Greenchoice publishes no contract declaring one, and an undeclared standard
+  is not a conformance.
+surfaces:
+  openid_connect_discovery: https://sso.greenchoice.nl/.well-known/openid-configuration
+  openapi: null
+  graphql: null
+  asyncapi: null
+conformance:
+  - id: oidc
+    name: OpenID Connect Core 1.0 / Discovery 1.0
+    conforms: true
+    evidence: >-
+      https://sso.greenchoice.nl/.well-known/openid-configuration returns HTTP 200
+      application/json with issuer, jwks_uri, authorization_endpoint, token_endpoint,
+      userinfo_endpoint and id_token_signing_alg_values_supported.
+  - id: oauth2
+    name: OAuth 2.0 (RFC 6749)
+    conforms: true
+    evidence: >-
+      authorization_endpoint + token_endpoint advertised; grant_types_supported includes
+      authorization_code, client_credentials, refresh_token and implicit.
+  - id: pkce
+    name: PKCE for OAuth Public Clients (RFC 7636)
+    conforms: true
+    evidence: 'code_challenge_methods_supported: ["plain","S256"]'
+  - id: oauth2-par
+    name: OAuth 2.0 Pushed Authorization Requests (RFC 9126)
+    conforms: true
+    evidence: >-
+      pushed_authorization_request_endpoint https://sso.greenchoice.nl/connect/par;
+      require_pushed_authorization_requests is false (supported, not mandatory).
+  - id: oauth2-dpop
+    name: OAuth 2.0 Demonstrating Proof of Possession (RFC 9449)
+    conforms: true
+    evidence: dpop_signing_alg_values_supported lists RS/PS/ES 256-512.
+  - id: oauth2-device-grant
+    name: OAuth 2.0 Device Authorization Grant (RFC 8628)
+    conforms: true
+    evidence: >-
+      device_authorization_endpoint https://sso.greenchoice.nl/connect/deviceauthorization and
+      grant type urn:ietf:params:oauth:grant-type:device_code.
+  - id: ciba
+    name: OpenID Connect Client-Initiated Backchannel Authentication (CIBA) Core 1.0
+    conforms: true
+    evidence: >-
+      backchannel_authentication_endpoint https://sso.greenchoice.nl/connect/ciba;
+      backchannel_token_delivery_modes_supported ["poll"].
+  - id: oauth2-introspection
+    name: OAuth 2.0 Token Introspection (RFC 7662)
+    conforms: true
+    evidence: introspection_endpoint https://sso.greenchoice.nl/connect/introspect
+  - id: oauth2-revocation
+    name: OAuth 2.0 Token Revocation (RFC 7009)
+    conforms: true
+    evidence: revocation_endpoint https://sso.greenchoice.nl/connect/revocation
+  - id: jwks
+    name: JSON Web Key Set (RFC 7517)
+    conforms: true
+    evidence: >-
+      jwks_uri https://sso.greenchoice.nl/.well-known/openid-configuration/jwks returns a live
+      RSA RS256 signing key set (HTTP 200).
+  - id: oidc-session-management
+    name: OpenID Connect Session Management / Front- and Back-Channel Logout
+    conforms: true
+    evidence: >-
+      check_session_iframe, end_session_endpoint, frontchannel_logout_supported and
+      backchannel_logout_supported all true.
+  - id: iss-response-param
+    name: OAuth 2.0 Authorization Server Issuer Identification (RFC 9207)
+    conforms: true
+    evidence: 'authorization_response_iss_parameter_supported: true'
+  - id: oauth2-dcr
+    name: OAuth 2.0 Dynamic Client Registration (RFC 7591)
+    conforms: false
+    evidence: >-
+      No registration_endpoint in the discovery document. Clients are provisioned out of band;
+      a third party cannot self-register.
+  - id: oauth2-protected-resource-metadata
+    name: OAuth 2.0 Protected Resource Metadata (RFC 9728)
+    conforms: false
+    evidence: >-
+      https://sso.greenchoice.nl/.well-known/oauth-protected-resource returns HTTP 200 with an
+      HTML login shell, not a metadata document.
+  - id: fapi
+    name: FAPI 2.0 Security Profile
+    conforms: false
+    evidence: >-
+      Not claimed anywhere, and the discovery document contradicts it: implicit flow and the
+      plain code_challenge method are advertised, and client_secret_basic/post are the only
+      client authentication methods (no private_key_jwt, no mTLS).
+  - id: rfc9116-security-txt
+    name: security.txt (RFC 9116)
+    conforms: false
+    evidence: >-
+      /.well-known/security.txt returns 404 on www.greenchoice.nl and greenchoice.nl and an
+      HTML shell on sso.greenchoice.nl. See well-known/greenchoice-well-known.yml.
+  - id: rfc9727-api-catalog
+    name: api-catalog (RFC 9727)
+    conforms: false
+    evidence: Not served on any probed host. See well-known/greenchoice-well-known.yml.
+compliance_programs:
+  - id: co2-prestatieladder
+    name: CO2-Prestatieladder, Niveau 3
+    body: SKAO (Stichting Klimaatvriendelijk Aanbesteden & Ondernemen)
+    achieved: '2019'
+    status: certified
+    scope: >-
+      "voor onze eigen organisatie en projecten een werkend CO2-managementsysteem […] dat
+      jaarlijks zal worden getoetst op ambities, reductie en continue verbetering."
+    evidence: https://www.greenchoice.nl/over-ons/co2-prestatieladder/
+    evidence_status: 200
+  - id: european-accessibility-act
+    name: European Accessibility Act conformity declaration (EN 301 549 / WCAG 2.2 AA)
+    body: Self-declared, based on external audits
+    declared: '2025-06-28'
+    status: partially-compliant
+    scope: >-
+      www.greenchoice.nl, the Mijn Greenchoice consumer environment, and transactional
+      communication (email/SMS/push). The declaration states Greenchoice does not fully comply
+      and publishes the measured result: 28 of 56 WCAG criteria met on the website and 31 of
+      56 in the consumer portal, with dated remediation roadmaps in annexes A and B.
+    evidence: https://www.greenchoice.nl/toegankelijkheid/conformiteitsverklaring-european-accessibility-act/
+    evidence_status: 200
+    note: >-
+      Recorded as published-and-partial rather than as a pass. The value of this declaration is
+      that it exists and states measured numbers against itself, which most providers in this
+      catalog do not publish at all.
+  - id: milieukeur
+    name: Milieukeur (Dutch environmental quality label)
+    status: published
+    evidence: https://www.greenchoice.nl/milieukeur/
+    evidence_status: 200
+  - id: gdpr
+    name: GDPR / AVG privacy statement
+    status: published
+    evidence: https://www.greenchoice.nl/privacy/
+    evidence_status: 200
+    note: A published privacy statement, not a certification or audited compliance programme.
+domain_standard:
+  declared: false
+  candidates_considered:
+    - EDSN / MFF Dutch energy market message flows
+    - ebIX energy market messages
+  note: >-
+    Greenchoice exchanges data with Dutch grid operators through sector infrastructure, but it
+    publishes no machine-readable contract that declares a domain standard, so no
+    domain_standard_conformance is asserted. REWARD-ONLY — absence is not a penalty.

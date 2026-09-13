@@ -1,0 +1,80 @@
+generated: '2026-09-12'
+method: probed
+source: https://sso.greenchoice.nl/.well-known/openid-configuration
+note: >-
+  The scopes below are the complete scopes_supported array Greenchoice's own OpenID Connect
+  discovery document advertises, read live on 2026-09-12. Greenchoice publishes no scope or
+  permission reference page, so the descriptions for the two non-standard scopes record what
+  can honestly be said about them and nothing more. No scope here was invented or inferred.
+docs: null
+docs_note: No published scopes/permissions reference exists on any Greenchoice surface.
+issuer: https://sso.greenchoice.nl
+flows:
+  - type: authorization_code
+    authorizationUrl: https://sso.greenchoice.nl/connect/authorize
+    tokenUrl: https://sso.greenchoice.nl/connect/token
+  - type: client_credentials
+    tokenUrl: https://sso.greenchoice.nl/connect/token
+  - type: device_code
+    deviceAuthorizationUrl: https://sso.greenchoice.nl/connect/deviceauthorization
+scope_count: 6
+scopes:
+  - name: openid
+    standard: true
+    spec: OpenID Connect Core 1.0
+    description: Requests an ID token; required for any OIDC authentication request.
+  - name: profile
+    standard: true
+    spec: OpenID Connect Core 1.0
+    description: >-
+      Default profile claim set. This deployment advertises name, family_name, given_name,
+      middle_name, nickname, preferred_username, picture, website, gender, birthdate,
+      zoneinfo, locale and updated_at among claims_supported.
+  - name: email
+    standard: true
+    spec: OpenID Connect Core 1.0
+    description: Releases the email and email_verified claims.
+  - name: offline_access
+    standard: true
+    spec: OpenID Connect Core 1.0
+    description: Requests a refresh token for long-lived access.
+  - name: id
+    standard: false
+    description: >-
+      Non-standard scope advertised by this issuer. A matching `id` claim appears in
+      claims_supported alongside `klant_id` (customer id). Greenchoice publishes no
+      definition; treated as an identifier-releasing scope, unverified.
+  - name: api-genesys-beheer
+    standard: false
+    description: >-
+      Non-standard scope. The name indicates administrative ("beheer") access to a Genesys
+      API — Genesys is the contact-centre platform Greenchoice operates. Its presence in a
+      public discovery document is the only evidence that any internal API exists behind this
+      issuer. Greenchoice publishes no definition, no documentation and no route for a third
+      party to be granted it.
+claims_supported:
+  - sub
+  - auth_method
+  - stp
+  - account_type
+  - medewerker_afkorting
+  - updated_at
+  - locale
+  - zoneinfo
+  - birthdate
+  - gender
+  - website
+  - picture
+  - profile
+  - preferred_username
+  - nickname
+  - middle_name
+  - given_name
+  - family_name
+  - name
+  - emailAlreadyRegistered
+  - permission
+  - id
+  - email
+  - email_verified
+  - klant_id

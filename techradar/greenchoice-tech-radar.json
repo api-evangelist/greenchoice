@@ -1,0 +1,593 @@
+{
+  "date": "2025.11",
+  "entries": [
+    {
+      "quadrant": 1,
+      "ring": 0,
+      "moved": 0,
+      "label": ".NET LTS/STS",
+      "link": "https://en.wikipedia.org/wiki/.NET"
+    },
+    {
+      "quadrant": 2,
+      "ring": 0,
+      "moved": 0,
+      "label": "Agile Scrum",
+      "link": "https://en.wikipedia.org/wiki/Scrum_(software_development)"
+    },
+    {
+      "quadrant": 0,
+      "ring": 0,
+      "moved": 0,
+      "label": "Application Insights",
+      "link": "https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview?tabs=net"
+    },
+    {
+      "quadrant": 0,
+      "ring": 2,
+      "moved": 0,
+      "label": "Aspire",
+      "link": "https://aspire.dev/"
+    },
+    {
+      "quadrant": 0,
+      "ring": 0,
+      "moved": 0,
+      "label": "Azure AppConfig",
+      "link": "https://learn.microsoft.com/en-us/azure/azure-app-configuration/overview"
+    },
+    {
+      "quadrant": 0,
+      "ring": 1,
+      "moved": 0,
+      "label": "Azure Container Apps",
+      "link": "https://azure.microsoft.com/products/container-apps"
+    },
+    {
+      "quadrant": 3,
+      "ring": 3,
+      "moved": 0,
+      "label": "Azure Data Studio",
+      "link": "https://learn.microsoft.com/en-us/azure-data-studio/whats-happening-azure-data-studio"
+    },
+    {
+      "quadrant": 0,
+      "ring": 0,
+      "moved": 0,
+      "label": "Azure DevOps",
+      "link": "https://azure.microsoft.com/products/devops"
+    },
+    {
+      "quadrant": 0,
+      "ring": 0,
+      "moved": 0,
+      "label": "Azure KeyVault",
+      "link": "https://azure.microsoft.com/en-us/products/key-vault"
+    },
+    {
+      "quadrant": 0,
+      "ring": 2,
+      "moved": 0,
+      "label": "Azure Service Bus",
+      "link": "https://azure.microsoft.com/en-us/products/service-bus"
+    },
+    {
+      "quadrant": 0,
+      "ring": 0,
+      "moved": 0,
+      "label": "Azure Storage",
+      "link": "https://learn.microsoft.com/en-us/azure/storage/common/storage-introduction"
+    },
+    {
+      "quadrant": 0,
+      "ring": 0,
+      "moved": 0,
+      "label": "Bicep",
+      "link": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/"
+    },
+    {
+      "quadrant": 2,
+      "ring": 0,
+      "moved": 0,
+      "label": "Blue/Green deployment",
+      "link": null
+    },
+    {
+      "quadrant": 1,
+      "ring": 0,
+      "moved": 0,
+      "label": "C#",
+      "link": "https://en.wikipedia.org/wiki/C_Sharp_(programming_language)"
+    },
+    {
+      "quadrant": 2,
+      "ring": 2,
+      "moved": 0,
+      "label": "Cloud Native",
+      "link": "https://github.com/cncf/toc/blob/main/DEFINITION.md"
+    },
+    {
+      "quadrant": 3,
+      "ring": 0,
+      "moved": 0,
+      "label": "Confluence",
+      "link": "https://www.atlassian.com/software/confluence"
+    },
+    {
+      "quadrant": 2,
+      "ring": 0,
+      "moved": 0,
+      "label": "Continuous Deployment",
+      "link": "https://en.wikipedia.org/wiki/Continuous_deployment"
+    },
+    {
+      "quadrant": 2,
+      "ring": 0,
+      "moved": 0,
+      "label": "Continuous Integration",
+      "link": "https://en.wikipedia.org/wiki/Continuous_integration"
+    },
+    {
+      "quadrant": 3,
+      "ring": 2,
+      "moved": 0,
+      "label": "Cursor",
+      "link": "https://cursor.com"
+    },
+    {
+      "quadrant": 1,
+      "ring": 0,
+      "moved": 0,
+      "label": "Data Analysis Expressions",
+      "link": "https://learn.microsoft.com/en-us/dax/"
+    },
+    {
+      "quadrant": 0,
+      "ring": 1,
+      "moved": 2,
+      "label": "Databricks",
+      "link": "https://www.databricks.com/"
+    },
+    {
+      "quadrant": 3,
+      "ring": 0,
+      "moved": 0,
+      "label": "Dependabot",
+      "link": "https://github.com/dependabot"
+    },
+    {
+      "quadrant": 0,
+      "ring": 2,
+      "moved": 0,
+      "label": "Docker",
+      "link": "https://www.docker.com/"
+    },
+    {
+      "quadrant": 3,
+      "ring": 0,
+      "moved": 0,
+      "label": "Draw.io (in confluence)",
+      "link": null
+    },
+    {
+      "quadrant": 1,
+      "ring": 0,
+      "moved": 0,
+      "label": "Duende IdentityServer",
+      "link": "https://duendesoftware.com/"
+    },
+    {
+      "quadrant": 1,
+      "ring": 3,
+      "moved": 0,
+      "label": "EPPlus",
+      "link": "https://epplussoftware.com/en/Developers/Features"
+    },
+    {
+      "quadrant": 2,
+      "ring": 2,
+      "moved": 0,
+      "label": "Europese cloud providers",
+      "link": null
+    },
+    {
+      "quadrant": 2,
+      "ring": 0,
+      "moved": 0,
+      "label": "Event-driven Architecture",
+      "link": "https://en.wikipedia.org/wiki/Event-driven_architecture"
+    },
+    {
+      "quadrant": 3,
+      "ring": 0,
+      "moved": 0,
+      "label": "Figma",
+      "link": "https://www.figma.com/"
+    },
+    {
+      "quadrant": 0,
+      "ring": 0,
+      "moved": 0,
+      "label": "GitHub",
+      "link": "https://github.com/"
+    },
+    {
+      "quadrant": 3,
+      "ring": 0,
+      "moved": 0,
+      "label": "GitHub CoPilot",
+      "link": "https://github.com/features/copilot"
+    },
+    {
+      "quadrant": 0,
+      "ring": 0,
+      "moved": 0,
+      "label": "Grafana k6",
+      "link": "https://k6.io/"
+    },
+    {
+      "quadrant": 1,
+      "ring": 2,
+      "moved": 0,
+      "label": "Green Coding",
+      "link": "https://en.wikipedia.org/wiki/Green_computing"
+    },
+    {
+      "quadrant": 2,
+      "ring": 0,
+      "moved": 0,
+      "label": "Infrastructure as Code",
+      "link": "https://en.wikipedia.org/wiki/Infrastructure_as_code"
+    },
+    {
+      "quadrant": 1,
+      "ring": 3,
+      "moved": 0,
+      "label": "Javascript",
+      "link": "https://www.javascript.com/"
+    },
+    {
+      "quadrant": 3,
+      "ring": 0,
+      "moved": 0,
+      "label": "JetBrains Datagrip",
+      "link": "https://www.jetbrains.com/datagrip/"
+    },
+    {
+      "quadrant": 3,
+      "ring": 0,
+      "moved": 0,
+      "label": "JetBrains Rider",
+      "link": "https://www.jetbrains.com/rider/"
+    },
+    {
+      "quadrant": 3,
+      "ring": 0,
+      "moved": 0,
+      "label": "JetBrains WebStorm",
+      "link": "https://www.jetbrains.com/webstorm"
+    },
+    {
+      "quadrant": 2,
+      "ring": 0,
+      "moved": 0,
+      "label": "Loose Coupling",
+      "link": "https://en.wikipedia.org/wiki/Loose_coupling"
+    },
+    {
+      "quadrant": 1,
+      "ring": 0,
+      "moved": 0,
+      "label": "MassTransit",
+      "link": "https://masstransit-project.com//understand/additions-to-transport.html"
+    },
+    {
+      "quadrant": 2,
+      "ring": 0,
+      "moved": 0,
+      "label": "Microservices",
+      "link": "https://en.wikipedia.org/wiki/Microservices"
+    },
+    {
+      "quadrant": 0,
+      "ring": 0,
+      "moved": 2,
+      "label": "Microsoft Analysis Services",
+      "link": "https://learn.microsoft.com/en-us/analysis-services/analysis-services-overview?view=sql-analysis-services-2025"
+    },
+    {
+      "quadrant": 0,
+      "ring": 0,
+      "moved": 0,
+      "label": "Microsoft SQL Server",
+      "link": "https://www.microsoft.com/sql-server/"
+    },
+    {
+      "quadrant": 3,
+      "ring": 3,
+      "moved": 0,
+      "label": "Miro",
+      "link": "https://miro.com/"
+    },
+    {
+      "quadrant": 3,
+      "ring": 0,
+      "moved": 0,
+      "label": "Nucleus",
+      "link": "https://nucleussec.com/"
+    },
+    {
+      "quadrant": 3,
+      "ring": 0,
+      "moved": 0,
+      "label": "Nuke",
+      "link": "https://nuke.build/"
+    },
+    {
+      "quadrant": 1,
+      "ring": 0,
+      "moved": 0,
+      "label": "Nuxt",
+      "link": "https://nuxt.com/"
+    },
+    {
+      "quadrant": 1,
+      "ring": 0,
+      "moved": 0,
+      "label": "OAuth",
+      "link": "https://oauth.net"
+    },
+    {
+      "quadrant": 0,
+      "ring": 3,
+      "moved": 0,
+      "label": "On-premise infra",
+      "link": null
+    },
+    {
+      "quadrant": 1,
+      "ring": 0,
+      "moved": 0,
+      "label": "OpenAPI",
+      "link": "https://www.openapis.org/"
+    },
+    {
+      "quadrant": 1,
+      "ring": 0,
+      "moved": 0,
+      "label": "OpenID Connect",
+      "link": "https://openid.net"
+    },
+    {
+      "quadrant": 1,
+      "ring": 1,
+      "moved": 0,
+      "label": "OpenTelemetry",
+      "link": "https://opentelemetry.io/"
+    },
+    {
+      "quadrant": 0,
+      "ring": 0,
+      "moved": 0,
+      "label": "Oracle APEX",
+      "link": "https://apex.oracle.com/"
+    },
+    {
+      "quadrant": 0,
+      "ring": 0,
+      "moved": 0,
+      "label": "Oracle Database",
+      "link": "https://www.oracle.com/database/"
+    },
+    {
+      "quadrant": 0,
+      "ring": 0,
+      "moved": 0,
+      "label": "Oracle REST Data Services",
+      "link": "https://www.oracle.com/database/technologies/appdev/rest.html"
+    },
+    {
+      "quadrant": 3,
+      "ring": 0,
+      "moved": 0,
+      "label": "Oracle SQL Developer",
+      "link": "https://www.oracle.com/database/sqldeveloper/"
+    },
+    {
+      "quadrant": 1,
+      "ring": 3,
+      "moved": 0,
+      "label": "PHP",
+      "link": "https://www.php.net/"
+    },
+    {
+      "quadrant": 3,
+      "ring": 0,
+      "moved": 0,
+      "label": "PL/SQL Developer",
+      "link": "https://www.allroundautomations.com/products/pl-sql-developer/"
+    },
+    {
+      "quadrant": 1,
+      "ring": 0,
+      "moved": 0,
+      "label": "Playwright",
+      "link": "https://playwright.dev/"
+    },
+    {
+      "quadrant": 3,
+      "ring": 0,
+      "moved": 0,
+      "label": "Postman",
+      "link": "https://www.postman.com/"
+    },
+    {
+      "quadrant": 3,
+      "ring": 2,
+      "moved": 2,
+      "label": "Power Automate",
+      "link": "https://www.microsoft.com/en-us/power-platform/products/power-automate"
+    },
+    {
+      "quadrant": 3,
+      "ring": 0,
+      "moved": 2,
+      "label": "Power BI",
+      "link": "https://www.microsoft.com/en-us/power-platform/products/power-bi"
+    },
+    {
+      "quadrant": 1,
+      "ring": 0,
+      "moved": 0,
+      "label": "Powershell",
+      "link": "https://learn.microsoft.com/en-us/powershell"
+    },
+    {
+      "quadrant": 0,
+      "ring": 0,
+      "moved": 0,
+      "label": "Pulumi",
+      "link": "https://www.pulumi.com/"
+    },
+    {
+      "quadrant": 1,
+      "ring": 0,
+      "moved": 0,
+      "label": "Python",
+      "link": "https://www.python.org/"
+    },
+    {
+      "quadrant": 0,
+      "ring": 0,
+      "moved": 0,
+      "label": "RabbitMQ",
+      "link": "https://www.rabbitmq.com/"
+    },
+    {
+      "quadrant": 3,
+      "ring": 0,
+      "moved": 0,
+      "label": "Renovate",
+      "link": "https://docs.renovatebot.com/"
+    },
+    {
+      "quadrant": 1,
+      "ring": 0,
+      "moved": 0,
+      "label": "Reqnroll",
+      "link": "https://reqnroll.net/"
+    },
+    {
+      "quadrant": 3,
+      "ring": 0,
+      "moved": 0,
+      "label": "Snyk",
+      "link": "https://snyk.io/"
+    },
+    {
+      "quadrant": 1,
+      "ring": 3,
+      "moved": 0,
+      "label": "SOAP",
+      "link": "https://en.wikipedia.org/wiki/SOAP"
+    },
+    {
+      "quadrant": 3,
+      "ring": 0,
+      "moved": 0,
+      "label": "SonarQube Cloud",
+      "link": "https://docs.sonarcloud.io"
+    },
+    {
+      "quadrant": 1,
+      "ring": 3,
+      "moved": 0,
+      "label": "Specflow",
+      "link": "https://specflow.org"
+    },
+    {
+      "quadrant": 3,
+      "ring": 0,
+      "moved": 0,
+      "label": "SQL Management Studio",
+      "link": "https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16"
+    },
+    {
+      "quadrant": 0,
+      "ring": 3,
+      "moved": -1,
+      "label": "SQL Server Integration Services",
+      "link": "https://learn.microsoft.com/en-us/sql/integration-services/sql-server-integration-services?view=sql-server-ver17"
+    },
+    {
+      "quadrant": 2,
+      "ring": 0,
+      "moved": 0,
+      "label": "SSD",
+      "link": "https://en.wikipedia.org/wiki/Software_development_security"
+    },
+    {
+      "quadrant": 1,
+      "ring": 0,
+      "moved": 0,
+      "label": "Storybook",
+      "link": "https://storybook.js.org/"
+    },
+    {
+      "quadrant": 1,
+      "ring": 0,
+      "moved": 0,
+      "label": "TypeScript",
+      "link": "https://en.wikipedia.org/wiki/TypeScript"
+    },
+    {
+      "quadrant": 1,
+      "ring": 0,
+      "moved": 0,
+      "label": "Umbraco",
+      "link": "https://umbraco.com/"
+    },
+    {
+      "quadrant": 1,
+      "ring": 3,
+      "moved": 0,
+      "label": "VB.NET",
+      "link": "https://learn.microsoft.com/en-us/dotnet/visual-basic"
+    },
+    {
+      "quadrant": 3,
+      "ring": 0,
+      "moved": 0,
+      "label": "Visual Studio",
+      "link": "https://visualstudio.microsoft.com/"
+    },
+    {
+      "quadrant": 3,
+      "ring": 0,
+      "moved": 0,
+      "label": "Visual Studio Code",
+      "link": "https://code.visualstudio.com/"
+    },
+    {
+      "quadrant": 1,
+      "ring": 0,
+      "moved": 0,
+      "label": "Vue.js",
+      "link": "https://vuejs.org/"
+    },
+    {
+      "quadrant": 1,
+      "ring": 3,
+      "moved": 0,
+      "label": "WCF",
+      "link": "https://learn.microsoft.com/en-us/dotnet/framework/wcf/whats-wcf"
+    },
+    {
+      "quadrant": 3,
+      "ring": 0,
+      "moved": 0,
+      "label": "Zabbix",
+      "link": "https://www.zabbix.com"
+    }
+  ]
+}

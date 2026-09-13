@@ -1,0 +1,97 @@
+# Greenchoice
+
+> Greenchoice is a Dutch energy supplier (Rotterdam, founded 1999) selling green electricity
+> and gas to consumers and businesses in the Netherlands, alongside solar panels, home
+> batteries, heat pumps and EV charging. It is not a software vendor and it does not run a
+> developer programme.
+
+generated: 2026-09-12
+method: generated
+source: apis.yml and the artifacts in this repository; every URL below was fetched during the
+2026-09-12 enrichment pass and returned the status noted.
+
+## What an agent can and cannot do here
+
+- There is **no public API**, no developer portal, no API documentation, no OpenAPI/AsyncAPI/
+  GraphQL contract, no MCP server and no A2A agent card. Probes for all of these are recorded
+  in this repository; none hit.
+- The one machine-readable document Greenchoice publishes is an **OpenID Connect discovery
+  document** for its own customer single sign-on. It is real and callable, but it serves
+  Greenchoice's own apps: there is no dynamic client registration, so a third party cannot
+  obtain a client_id.
+- The Greenchoice mobile app talks to a private API at `app.greenchoice.nl`. It is
+  undocumented, unsupported, and that host resets the TLS handshake for ordinary browser
+  clients. Community Home Assistant components call it by reverse engineering. Do not treat it
+  as a published interface.
+- Everything a person needs — tariffs, contracts, meter readings, invoices — is behind the
+  Mijn Greenchoice login at https://mijn.greenchoice.nl/ and is not machine-addressable.
+
+## Identity surface (the only machine-readable contract)
+
+- [OpenID Connect discovery](https://sso.greenchoice.nl/.well-known/openid-configuration): 200,
+  application/json. Issuer https://sso.greenchoice.nl. Advertises authorize, token, userinfo,
+  endsession, revocation, introspection, device-authorization, CIBA and PAR endpoints, PKCE
+  (S256), DPoP and RS256 ID tokens. Saved verbatim at
+  `well-known/greenchoice-openid-configuration.json`.
+- [JWKS](https://sso.greenchoice.nl/.well-known/openid-configuration/jwks): 200, live RS256 key set.
+- Scopes advertised: `openid`, `profile`, `email`, `id`, `api-genesys-beheer`, `offline_access`.
+- No `registration_endpoint` (no RFC 7591 dynamic client registration).
+- No `/.well-known/oauth-protected-resource` (RFC 9728) document.
+
+## Technology Radar (machine-readable, and the most substantive engineering document Greenchoice publishes)
+
+- [Greenchoice Tech Radar](https://techradar.greenchoice.nl/): 200
+- [config.json](https://techradar.greenchoice.nl/config.json): 200 — dated 2025.11, 84 entries,
+  four quadrants (Infrastructuur & Platformen, Talen & Frameworks, Architectuur & Cultuur,
+  Ondersteuning & Tools), four rings (Gebruik 62, Probeer 3, Onderzoek 8, Verminder 11). Saved
+  verbatim at `techradar/greenchoice-tech-radar.json`.
+- The radar lists Duende IdentityServer, which corroborates the SSO discovery document above,
+  and describes a Microsoft Azure / .NET estate delivered through GitHub and Azure DevOps.
+
+## Company pages
+
+- [Website](https://www.greenchoice.nl): 200
+- [About Greenchoice](https://www.greenchoice.nl/over-ons/): 200
+- [Customer service](https://www.greenchoice.nl/klantenservice/): 200
+- [Tariffs and sign-up](https://www.greenchoice.nl/tarieven/): 200
+- [Terms and conditions](https://www.greenchoice.nl/klantenservice/voorwaarden/): 200
+- [Privacy statement](https://www.greenchoice.nl/privacy/): 200
+- [Disclaimer](https://www.greenchoice.nl/disclaimer/): 200
+- [Cookies](https://www.greenchoice.nl/cookies/): 200
+- [News](https://www.greenchoice.nl/nieuws/artikelen/): 200
+- [Mijn Greenchoice (customer login)](https://mijn.greenchoice.nl/): 200, 302s to the SSO authorize endpoint
+- [Annual report](https://jaarverslag.greenchoice.nl/): 200
+- [Phishing warnings](https://www.greenchoice.nl/phishing/): 200
+- [LinkedIn](https://www.linkedin.com/company/greenchoice): 200
+
+## Published compliance
+
+- [CO2-Prestatieladder Niveau 3](https://www.greenchoice.nl/over-ons/co2-prestatieladder/) (SKAO, 2019): 200
+- [European Accessibility Act conformity declaration](https://www.greenchoice.nl/toegankelijkheid/conformiteitsverklaring-european-accessibility-act/) (EN 301 549 / WCAG 2.2 AA, declared 2025-06-28, partially compliant with measured criteria counts): 200
+- [Milieukeur](https://www.greenchoice.nl/milieukeur/): 200
+
+## Artifacts in this profile
+
+- `well-known/greenchoice-well-known.yml` — every well-known path probed, on five hosts, with statuses
+- `well-known/greenchoice-openid-configuration.json` — the discovery document, verbatim
+- `authentication/greenchoice-authentication.yml` — the identity profile read out of that document
+- `scopes/greenchoice-scopes.yml` — the six advertised scopes and the claim set
+- `conformance/greenchoice-conformance.yml` — protocol conformance plus published certifications
+- `packages/greenchoice-packages.yml` — three third-party community clients; no first-party SDK
+- `plans/greenchoice-plans-pricing.yml` — retail energy tariffs only; no API plans
+- `rate-limits/greenchoice-rate-limits.yml` — no published limits
+- `techradar/greenchoice-tech-radar.json` + `.yml` — the published tech radar, verbatim, and its summary
+- `security/greenchoice-domain-security.yml` — TLS 1.3, HSTS, DNSSEC, CAA, SPF, DMARC p=reject
+
+## Not found (probed, absent)
+
+- `/.well-known/security.txt`, `/.well-known/api-catalog`, `/.well-known/ai-plugin.json`,
+  `/.well-known/agent-card.json`, `/.well-known/agent.json`, `/llms.txt`, `/openapi.json`,
+  `/swagger.json` — on www.greenchoice.nl, greenchoice.nl, mijn.greenchoice.nl and
+  sso.greenchoice.nl. `api.greenchoice.nl` and `developer.greenchoice.nl` do not resolve.
+- No GitHub organisation (api.github.com/orgs/greenchoice returns 404); the user account
+  github.com/greenchoice is an unrelated individual and is not wired to this profile.
+- No `api.`, `developer.`, `status.` or `tools.` subdomain resolves on greenchoice.nl.
+  Certificate Transparency (crt.sh) was used to enumerate 79 host names; the only public
+  machine-readable documents among them are the SSO discovery document and the tech radar config.
+- No status page, changelog, roadmap, CLI, sandbox, Postman collection or bug bounty programme.

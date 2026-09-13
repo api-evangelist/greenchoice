@@ -1,0 +1,48 @@
+generated: '2026-09-12'
+method: searched
+source: https://techradar.greenchoice.nl/config.json
+note: >-
+  Greenchoice publishes a public Technology Radar at https://techradar.greenchoice.nl/ — a
+  Zalando tech-radar visualisation fed by a machine-readable config.json that this pass fetched
+  verbatim (HTTP 200, 2026-09-12). It is dated 2025.11 and carries 84 entries across four
+  quadrants with a four-ring assessment. This is the single most substantive machine-readable
+  document Greenchoice publishes about its own engineering, and it is what a reader should look
+  at given there is no developer portal. Saved verbatim as greenchoice-tech-radar.json.
+site: https://techradar.greenchoice.nl/
+data: techradar/greenchoice-tech-radar.json
+data_status: 200
+radar_date: '2025.11'
+entry_count: 84
+based_on: https://github.com/zalando/tech-radar
+quadrants:
+  - Infrastructuur & Platformen
+  - Talen & Frameworks
+  - Architectuur & Cultuur
+  - Ondersteuning & Tools
+rings:
+  - id: 0
+    name: Gebruik
+    meaning: In (or ready for) production use.
+    count: 62
+  - id: 1
+    name: Probeer
+    meaning: Interesting; may form part of an MVP in production.
+    count: 3
+  - id: 2
+    name: Onderzoek
+    meaning: Looks interesting; may form part of a POC outside production.
+    count: 8
+  - id: 3
+    name: Verminder
+    meaning: Use should be reduced.
+    count: 11
+corroborates:
+  - >-
+    "Duende IdentityServer" appears on the radar, which independently corroborates the OpenID
+    Connect discovery document found at https://sso.greenchoice.nl/.well-known/openid-configuration
+    — the endpoint layout there (/connect/authorize, /connect/par, /connect/ciba) is
+    IdentityServer's.
+  - >-
+    The radar is predominantly a Microsoft Azure / .NET estate (Azure Container Apps, Azure
+    Service Bus, Azure KeyVault, Bicep, C#, MassTransit, Application Insights) with GitHub and
+    Azure DevOps for delivery.

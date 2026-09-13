@@ -1,0 +1,22 @@
+generated: '2026-09-12'
+method: searched
+source: >-
+  Searched every Greenchoice public surface for a published rate-limit policy on 2026-09-12:
+  the website (423 URLs in https://www.greenchoice.nl/sitemap.xml), the customer portal, and
+  the OpenID Connect discovery document at https://sso.greenchoice.nl/.well-known/openid-configuration.
+note: >-
+  Greenchoice publishes no API and therefore no rate-limit documentation. The one callable
+  surface it exposes publicly — the OIDC token/authorize endpoints at sso.greenchoice.nl —
+  advertises no limits in its discovery document and returned no RateLimit-* or X-RateLimit-*
+  headers on the unauthenticated GETs made during this pass. limit_count 0 is an honest zero,
+  not an unchecked field.
+limit_count: 0
+rate_limits: []
+headers_observed: []
+observed_on:
+  - url: https://sso.greenchoice.nl/.well-known/openid-configuration
+    status: 200
+    rate_limit_headers: none
+  - url: https://www.greenchoice.nl/
+    status: 200
+    rate_limit_headers: none

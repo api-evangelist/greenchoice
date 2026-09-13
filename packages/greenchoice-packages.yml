@@ -1,0 +1,75 @@
+generated: '2026-09-12'
+method: searched
+source: >-
+  Searched npm (registry.npmjs.org), PyPI, Packagist (repo.packagist.org), and the GitHub
+  repository search API on 2026-09-12, plus the Greenchoice website for any SDK or developer
+  page.
+note: >-
+  GREENCHOICE PUBLISHES NO FIRST-PARTY CLIENT LIBRARY, in any registry, and no developer
+  portal that would host one. Everything below is third-party work written by the Dutch
+  home-automation community against the private API that the Greenchoice mobile app calls
+  (app.greenchoice.nl), discovered by inspecting that app's network traffic. Every entry is
+  therefore official:false. NO `SDKs` POINTER IS EMITTED for this repo — an sdk_count credit
+  here would credit Greenchoice with libraries it did not write, does not support, and does
+  not document.
+official_sdk_count: 0
+package_count: 3
+packages:
+  - name: xvilo/greenchoice
+    registry: packagist
+    url: https://packagist.org/packages/xvilo/greenchoice
+    repository: https://github.com/xvilo/greenchoice-api-client
+    language: PHP
+    official: false
+    version: 0.4.0
+    published: '2020-06-30'
+    source: https://repo.packagist.org/p2/xvilo/greenchoice.json
+    note: >-
+      Community PHP wrapper. Its own README states there is no official public API and that the
+      client was built by inspecting the mobile app's traffic. Last release 2020-06-30 —
+      dormant for over six years; the upstream repository's last push is the same day.
+  - name: homeassistant-greenchoice (barisdemirdelen)
+    registry: github
+    url: https://github.com/barisdemirdelen/homeassistant-greenchoice
+    language: Python
+    official: false
+    version: null
+    published: '2026-09-11'
+    source: https://api.github.com/repos/barisdemirdelen/homeassistant-greenchoice
+    note: >-
+      Actively maintained Home Assistant custom component (47 stars, last push 2026-09-11).
+      Distributed through HACS/GitHub, not a package registry, so there is no registry metadata
+      endpoint to read a version from — `version: null` records that it was checked, not that
+      it was skipped. The `published` date is the repository's last push.
+  - name: homeassistant-greenchoice (jessevl)
+    registry: github
+    url: https://github.com/jessevl/homeassistant-greenchoice
+    language: Python
+    official: false
+    version: null
+    published: '2023-01-31'
+    source: https://api.github.com/repos/jessevl/homeassistant-greenchoice
+    license: MIT
+    note: >-
+      The original Home Assistant component (27 stars). ARCHIVED by its owner on 2023-01-31 and
+      read-only; the entry above is the living fork. No registry distribution, hence
+      `version: null`.
+registries_checked:
+  - registry: npm
+    query: https://registry.npmjs.org/greenchoice
+    status: 404
+  - registry: pypi
+    query: https://pypi.org/pypi/greenchoice/json
+    status: 404
+  - registry: packagist
+    query: https://repo.packagist.org/p2/xvilo/greenchoice.json
+    status: 200
+    result: one third-party package
+  - registry: github-search
+    query: 'https://api.github.com/search/repositories?q=greenchoice+in:name'
+    status: 200
+    result: >-
+      No Greenchoice-owned organisation exists on GitHub. api.github.com/orgs/greenchoice
+      returns 404; the user account github.com/greenchoice is an unrelated individual (no
+      name, no company, one repository) and is deliberately NOT wired as this company's
+      GitHub organisation.

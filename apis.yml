@@ -1,7 +1,11 @@
 aid: greenchoice
 name: Greenchoice
 description: >-
-  Greenchoice is a Dutch energy supplier focused on green electricity and gas, offering renewable energy contracts, solar panels, heat pumps, and EV charging services to consumers and businesses in the Netherlands.
+  Greenchoice is a Dutch energy supplier focused on green electricity and gas, offering renewable
+  energy contracts, solar panels, home batteries, heat pumps and EV charging to consumers and
+  businesses in the Netherlands. It runs no developer programme and publishes no API: the only
+  machine-readable contract on any Greenchoice host is the OpenID Connect discovery document
+  behind its own customer single sign-on at sso.greenchoice.nl.
 type: Index
 deliveryModel:
   model: unknown
@@ -36,7 +40,7 @@ tags:
   - Sustainability
   - Netherlands
 created: '2025-03-01'
-modified: '2026-04-28'
+modified: '2026-09-12'
 url: >-
   https://raw.githubusercontent.com/api-evangelist/greenchoice/refs/heads/main/apis.yml
 specificationVersion: '0.23'
@@ -44,12 +48,97 @@ apis: []
 common:
   - type: DomainSecurity
     url: security/greenchoice-domain-security.yml
+  - type: WellKnown
+    name: Well-Known Document Probe
+    description: >-
+      Every RFC 8615 well-known path probed across five Greenchoice hosts, with the status each
+      returned. One real hit: the OpenID Connect discovery document on sso.greenchoice.nl.
+    url: well-known/greenchoice-well-known.yml
+  - type: OpenIDConnect
+    name: OpenID Connect Discovery Document
+    description: >-
+      Greenchoice's own OIDC 1.0 discovery document, saved verbatim from
+      https://sso.greenchoice.nl/.well-known/openid-configuration (HTTP 200, 2026-09-12).
+    url: well-known/greenchoice-openid-configuration.json
+  - type: Authentication
+    name: Authentication Profile
+    description: >-
+      Identity profile read out of the live OIDC discovery document: endpoints, grant types,
+      PKCE, PAR, CIBA, DPoP, logout and the absence of dynamic client registration.
+    url: authentication/greenchoice-authentication.yml
+  - type: OAuthScopes
+    name: OAuth Scopes
+    description: The six scopes advertised in scopes_supported, plus the published claim set.
+    url: scopes/greenchoice-scopes.yml
+  - type: Conformance
+    name: Conformance
+    description: >-
+      Protocol conformance read from the discovery document (OIDC, OAuth 2.0, PKCE, PAR, DPoP,
+      device grant, CIBA, introspection, revocation) and the standards it does not meet.
+    url: conformance/greenchoice-conformance.yml
+  - type: Compliance
+    name: Published Compliance and Certification
+    description: >-
+      CO2-Prestatieladder Niveau 3 (SKAO, 2019), the European Accessibility Act conformity
+      declaration of 2025-06-28 against EN 301 549 / WCAG 2.2 AA, and Milieukeur.
+    url: conformance/greenchoice-conformance.yml
+  - type: Packages
+    name: Client Libraries
+    description: >-
+      Three third-party community clients built against the private mobile-app API. No
+      first-party SDK exists, so no SDKs pointer is claimed.
+    url: packages/greenchoice-packages.yml
+  - type: LLMsTxt
+    name: llms.txt
+    description: Agent-readable summary of what this company does and does not publish.
+    url: llms/greenchoice-llms.txt
+  - type: Plans
+    name: Plans and Pricing
+    description: >-
+      Retail energy tariffs are published; no API plans exist (plan_count 0).
+    url: plans/greenchoice-plans-pricing.yml
+  - type: RateLimits
+    name: Rate Limits
+    description: No rate limits are published on any surface (limit_count 0).
+    url: rate-limits/greenchoice-rate-limits.yml
+  - type: X-TechRadar
+    name: Greenchoice Tech Radar
+    description: >-
+      Greenchoice's public technology radar, dated 2025.11 with 84 entries across four quadrants
+      and four assessment rings, saved verbatim from its machine-readable config.json.
+    url: techradar/greenchoice-tech-radar.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/greenchoice
   - type: Website
     name: Greenchoice Website
     description: Official corporate website for Greenchoice.
     url: https://www.greenchoice.nl
+  - type: Support
+    name: Klantenservice
+    description: Greenchoice customer service hub.
+    url: https://www.greenchoice.nl/klantenservice/
+  - type: Pricing
+    name: Tarieven
+    description: Published consumer energy tariffs and sign-up.
+    url: https://www.greenchoice.nl/tarieven/
+  - type: TermsOfService
+    name: Voorwaarden
+    url: https://www.greenchoice.nl/klantenservice/voorwaarden/
+  - type: PrivacyPolicy
+    name: Privacy statement
+    url: https://www.greenchoice.nl/privacy/
+  - type: Login
+    name: Mijn Greenchoice
+    description: Customer portal login; redirects to the Greenchoice SSO authorize endpoint.
+    url: https://mijn.greenchoice.nl/
+  - type: Blog
+    name: Nieuws
+    url: https://www.greenchoice.nl/nieuws/artikelen/
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
+x-enrichment:
+  date: '2026-09-12'
+  status: enriched
+  artifacts_added: 11
+  pass: local-v3

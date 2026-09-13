@@ -1,0 +1,25 @@
+generated: '2026-09-12'
+method: searched
+source: https://www.greenchoice.nl/tarieven/
+note: >-
+  Greenchoice publishes retail energy tariffs — price per kWh and per m3, standing charges and
+  contract terms for consumers, ZZP, MKB and grootzakelijk customers — and nothing that prices
+  API access, because it offers no API product. plan_count is therefore 0, and that is the
+  measurement, not a gap in this pass. The retail pricing pages are recorded below so a reader
+  can see what WAS published and judge for themselves.
+plan_count: 0
+plans: []
+api_pricing_published: false
+retail_pricing_pages:
+  - name: Aanmelden en tarieven (consumer)
+    url: https://www.greenchoice.nl/tarieven/
+    status: 200
+  - name: Tarieven (jaarnota explanation)
+    url: https://www.greenchoice.nl/klantenservice/jaarnota/tarieven/
+    status: 200
+  - name: MKB stroom en gas tarieven
+    url: https://www.greenchoice.nl/mkb/stroom-gas/tarieven/
+    status: 200
+  - name: Grootzakelijk
+    url: https://www.greenchoice.nl/grootzakelijk/klantenservice/
+    status: 200

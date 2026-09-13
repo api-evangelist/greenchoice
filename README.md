@@ -85,11 +85,18 @@ Greenchoice is a Dutch energy supplier focused on green electricity and gas, off
 
 ## APIs
 
-No public APIs have been documented. Greenchoice does not publish a developer portal at this time.
+No public APIs have been documented. Greenchoice publishes no developer portal, no API
+documentation and no OpenAPI, AsyncAPI, GraphQL, MCP or A2A contract. The one machine-readable
+document found on any Greenchoice host is the OpenID Connect discovery document its own customer
+single sign-on serves at `https://sso.greenchoice.nl/.well-known/openid-configuration`; it is
+saved verbatim in `well-known/` and profiled in `authentication/` and `scopes/`. It offers no
+dynamic client registration, so it is not an integration route for a third party.
 
 ## Common Properties
 
-- [Website](https://www.greenchoice.nl)
+- [Website](https://www.greenchoice.nl) · [Klantenservice](https://www.greenchoice.nl/klantenservice/) · [Tarieven](https://www.greenchoice.nl/tarieven/) · [Voorwaarden](https://www.greenchoice.nl/klantenservice/voorwaarden/) · [Privacy](https://www.greenchoice.nl/privacy/) · [Nieuws](https://www.greenchoice.nl/nieuws/artikelen/) · [Mijn Greenchoice](https://mijn.greenchoice.nl/) · [LinkedIn](https://www.linkedin.com/company/greenchoice)
+- Public tech radar: [techradar.greenchoice.nl](https://techradar.greenchoice.nl/) — machine-readable `config.json`, dated 2025.11, 84 entries (saved verbatim in `techradar/`)
+- Artifacts: `techradar/`, `well-known/` (OpenID Connect discovery document, saved verbatim), `authentication/`, `scopes/`, `conformance/`, `packages/`, `llms/`, `plans/`, `rate-limits/`, `security/`
 
 ## Maintainers
 

@@ -1,0 +1,116 @@
+generated: '2026-09-12'
+method: probed
+source: https://sso.greenchoice.nl/.well-known/openid-configuration
+note: >-
+  Derived entirely from Greenchoice's own live OpenID Connect discovery document, fetched
+  unauthenticated on 2026-09-12 (HTTP 200, application/json). Greenchoice publishes no
+  developer portal and no API authentication documentation; this profile therefore describes
+  the identity layer behind the customer-facing surfaces (Mijn Greenchoice and the mobile
+  app), not a partner or developer API programme. Nothing here is inferred — every field is a
+  value the discovery document states about itself.
+ownership: >-
+  The discovery document self-identifies as issuer https://sso.greenchoice.nl, a Greenchoice
+  registrable domain, and is reached by following the 302 that https://mijn.greenchoice.nl/
+  issues to /connect/authorize?client_id=app-mijngreenchoice. It belongs to Greenchoice.
+surface: Customer identity / single sign-on (first-party). No public developer API.
+schemes:
+  - name: oidc_authorization_code
+    type: openIdConnect
+    protocol: OpenID Connect 1.0
+    openIdConnectUrl: https://sso.greenchoice.nl/.well-known/openid-configuration
+    issuer: https://sso.greenchoice.nl
+    endpoints:
+      authorization: https://sso.greenchoice.nl/connect/authorize
+      token: https://sso.greenchoice.nl/connect/token
+      userinfo: https://sso.greenchoice.nl/connect/userinfo
+      end_session: https://sso.greenchoice.nl/connect/endsession
+      check_session_iframe: https://sso.greenchoice.nl/connect/checksession
+      revocation: https://sso.greenchoice.nl/connect/revocation
+      introspection: https://sso.greenchoice.nl/connect/introspect
+      device_authorization: https://sso.greenchoice.nl/connect/deviceauthorization
+      backchannel_authentication: https://sso.greenchoice.nl/connect/ciba
+      pushed_authorization_request: https://sso.greenchoice.nl/connect/par
+      jwks: https://sso.greenchoice.nl/.well-known/openid-configuration/jwks
+    grant_types:
+      - authorization_code
+      - client_credentials
+      - refresh_token
+      - implicit
+      - urn:ietf:params:oauth:grant-type:device_code
+      - urn:openid:params:grant-type:ciba
+      - soft_login_id
+      - accountless_soft_login_id
+      - soft_login_access
+      - trusted-client
+      - windows
+    non_standard_grant_types:
+      - soft_login_id
+      - accountless_soft_login_id
+      - soft_login_access
+      - trusted-client
+      - windows
+    non_standard_grant_note: >-
+      Five of the eleven advertised grant types are vendor/bespoke rather than registered
+      OAuth 2.0 grants. They are recorded verbatim because the discovery document advertises
+      them; Greenchoice publishes no documentation for them, so their semantics are unknown
+      to a public reader.
+    response_types:
+      - code
+      - token
+      - id_token
+      - id_token token
+      - code id_token
+      - code token
+      - code id_token token
+    response_modes: [form_post, query, fragment]
+    client_authentication: [client_secret_basic, client_secret_post]
+    pkce:
+      supported: true
+      code_challenge_methods: [plain, S256]
+    dpop:
+      supported: true
+      signing_algs: [RS256, RS384, RS512, PS256, PS384, PS512, ES256, ES384, ES512]
+    par:
+      supported: true
+      required: false
+    ciba:
+      supported: true
+      token_delivery_modes: [poll]
+      user_code_parameter_supported: true
+    request_object:
+      request_parameter_supported: true
+      signing_algs: [RS256, RS384, RS512, PS256, PS384, PS512, ES256, ES384, ES512]
+    id_token_signing_algs: [RS256]
+    userinfo_signing_algs: [RS256]
+    subject_types: [public]
+    prompt_values: [none, login, consent, select_account]
+    logout:
+      frontchannel_logout_supported: true
+      frontchannel_logout_session_supported: true
+      backchannel_logout_supported: true
+      backchannel_logout_session_supported: true
+    authorization_response_iss_parameter_supported: true
+    dynamic_client_registration:
+      supported: false
+      note: >-
+        No registration_endpoint is advertised in the discovery document, so RFC 7591 dynamic
+        client registration is not offered. Clients are registered out of band by Greenchoice
+        (the portal uses client_id app-mijngreenchoice).
+scopes_reference: scopes/greenchoice-scopes.yml
+api_keys:
+  offered: false
+  note: No API key programme is published.
+mtls:
+  offered: false
+docs:
+  - url: https://mijn.greenchoice.nl/
+    status: 200
+    note: >-
+      Customer login entry point; 302s to the authorize endpoint. There is no human-readable
+      authentication reference — this artifact is built from the machine-readable document only.
+gaps:
+  - No developer documentation describes any of these endpoints.
+  - No dynamic client registration; third parties cannot obtain a client_id.
+  - >-
+    No /.well-known/oauth-protected-resource (RFC 9728) document, so a resource server and its
+    required scopes cannot be discovered from the issuer.
