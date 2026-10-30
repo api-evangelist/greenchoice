@@ -1,4 +1,4 @@
-# Greenchoice (greenchoice)
+# Greenchoice
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,42 +64,103 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Greenchoice is a Dutch energy supplier focused on green electricity and gas, offering renewable energy contracts, solar panels, heat pumps, and EV charging services to consumers and businesses in the Netherlands.
+Greenchoice is a Dutch energy supplier focused on green electricity and gas, offering renewable energy contracts, solar panels, home batteries, heat pumps and EV charging to consumers and businesses in the Netherlands. It runs no developer programme and publishes no API: the only machine-readable contract on any Greenchoice host is the OpenID Connect discovery document behind its own customer single sign-on at sso.greenchoice.nl.
 
-**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/greenchoice/refs/heads/main/apis.yml)
+**Areas:** Energy · Electricity · Gas · Renewables · Sustainability · Netherlands
 
-## Scope
+## Greenchoice on APIs.io
 
-- **Type:** Index
-- **Position:** Consumer
-- **Access:** 3rd-Party
+Everything profiled for Greenchoice is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/greenchoice/](https://apis.io/providers/greenchoice/)** — or go straight to one of the APIs or properties below.
 
-## Tags:
+### Published properties
 
- - Energy, Electricity, Gas, Renewable, Sustainability, Netherlands
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## Timestamps
+#### Security (2)
 
-- **Created:** 2025-03-01
-- **Modified:** 2026-04-28
+Authentication, trust centre, and vulnerability disclosure.
 
-## APIs
+- [Greenchoice Authentication](https://apis.io/security/greenchoice/greenchoice-authentication/)
+- [Greenchoice Domain Security](https://apis.io/security/greenchoice/greenchoice-domain-security/)
 
-No public APIs have been documented. Greenchoice publishes no developer portal, no API
-documentation and no OpenAPI, AsyncAPI, GraphQL, MCP or A2A contract. The one machine-readable
-document found on any Greenchoice host is the OpenID Connect discovery document its own customer
-single sign-on serves at `https://sso.greenchoice.nl/.well-known/openid-configuration`; it is
-saved verbatim in `well-known/` and profiled in `authentication/` and `scopes/`. It offers no
-dynamic client registration, so it is not an integration route for a third party.
+#### OAuth scopes (1)
 
-## Common Properties
+The permissions the API asks for.
 
-- [Website](https://www.greenchoice.nl) · [Klantenservice](https://www.greenchoice.nl/klantenservice/) · [Tarieven](https://www.greenchoice.nl/tarieven/) · [Voorwaarden](https://www.greenchoice.nl/klantenservice/voorwaarden/) · [Privacy](https://www.greenchoice.nl/privacy/) · [Nieuws](https://www.greenchoice.nl/nieuws/artikelen/) · [Mijn Greenchoice](https://mijn.greenchoice.nl/) · [LinkedIn](https://www.linkedin.com/company/greenchoice)
-- Public tech radar: [techradar.greenchoice.nl](https://techradar.greenchoice.nl/) — machine-readable `config.json`, dated 2025.11, 84 entries (saved verbatim in `techradar/`)
-- Artifacts: `techradar/`, `well-known/` (OpenID Connect discovery document, saved verbatim), `authentication/`, `scopes/`, `conformance/`, `packages/`, `llms/`, `plans/`, `rate-limits/`, `security/`
+- [Greenchoice Scopes](https://apis.io/scopes/greenchoice/greenchoice-scopes/)
 
-## Maintainers
+#### Plans and pricing (1)
 
-**FN:** Kin Lane
+Published plans, tiers and prices.
 
-**Email:** kin@apievangelist.com
+- [Greenchoice Plans Pricing](https://apis.io/plans/greenchoice/greenchoice-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Greenchoice Rate Limits](https://apis.io/rate-limits/greenchoice/greenchoice-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.greenchoice.nl)
+- [Pricing](https://www.greenchoice.nl/tarieven/)
+- [Support](https://www.greenchoice.nl/klantenservice/)
+- [Blog](https://www.greenchoice.nl/nieuws/artikelen/)
+- [Terms of service](https://www.greenchoice.nl/klantenservice/voorwaarden/)
+- [Privacy policy](https://www.greenchoice.nl/privacy/)
+
+## API Evangelist rating
+
+**Kin Score 25.8** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 55.4 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 19.0 |
+| Access clarity | 52.6 |
+
+**Agent readiness 13.3** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 38.5** — Energy & Utilities
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/greenchoice/](https://apis.io/providers/greenchoice/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Greenchoice: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/greenchoice/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
